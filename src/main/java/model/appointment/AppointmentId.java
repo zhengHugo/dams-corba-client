@@ -1,9 +1,8 @@
 package model.appointment;
 
-import java.io.Serializable;
 import model.common.City;
 
-public class AppointmentId implements Serializable, Comparable<AppointmentId> {
+public class AppointmentId implements Comparable<AppointmentId> {
   private final City city;
   private final AppointmentTime time;
   private final String dateString;
@@ -15,8 +14,8 @@ public class AppointmentId implements Serializable, Comparable<AppointmentId> {
   }
 
   public AppointmentId(String idString) {
-    this.city = City.valueOf(idString.substring(0, 3));
-    this.time = AppointmentTime.valueOf(idString.substring(3, 4));
+    this.city = City.fromCode(idString.substring(0, 3));
+    this.time = AppointmentTime.fromCode(idString.substring(3, 4));
     this.dateString = idString.substring(4);
   }
 
